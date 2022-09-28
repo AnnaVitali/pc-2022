@@ -1,7 +1,5 @@
 package smart_room.centralized;
 
-import smart_room.Event;
-
 public class TestSingleBoardSimulator {
 
 	public static void main(String[] args) throws Exception {
@@ -9,9 +7,7 @@ public class TestSingleBoardSimulator {
 		SinglelBoardSimulator board = new SinglelBoardSimulator();
 		board.init();
 	
-		board.register((Event ev) -> {
-			System.out.println("New event: " + ev);
-		});
+		board.register(new AgentEventLoop());
 		
 		new Thread(() -> {
 			while (true) {

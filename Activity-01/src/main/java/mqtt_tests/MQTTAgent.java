@@ -33,7 +33,6 @@ public class MQTTAgent extends AbstractVerticle {
 		client.connect(1883, "broker.mqtt-dashboard.com", c -> {
 
 			log("connected");
-			
 			log("subscribing...");
 			client.publishHandler(s -> {
 			  System.out.println("There are new message in topic: " + s.topicName());
